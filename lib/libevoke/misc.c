@@ -230,6 +230,9 @@ handle * dial(char *address, char *local) {
 			} else if (strncmp(hostspec->protocol.text,"tcp",5) == 0) {
 				hints.ai_socktype = SOCK_STREAM;
 				hints.ai_protocol = IPPROTO_TCP;
+			} else if (strncmp(hostspec->protocol.text,"unix",5) == 0) {
+				hints.ai_socktype = SOCK_STREAM;
+				hints.ai_family = PF_UNIX;
 			} else {
 				hints.ai_socktype = SOCK_STREAM;
 			}
@@ -319,6 +322,9 @@ handle * announce(char *address) {
 		} else if (strncmp(localaddress->protocol.text, "sctp", 5) == 0) {
 			hints.ai_socktype = SOCK_STREAM;
 			hints.ai_protocol = IPPROTO_SCTP;
+		} else if (strncmp(localaddress->protocol.text, "unix", 4) == 0) {
+			hints.ai_family = PF_UNIX;
+			hints.ai_socktype = SOCK_STREAM;
 		} else if (strncmp(localaddress->protocol.text, "net", 4) == 0) {
 			hints.ai_socktype = SOCK_STREAM;
 		} else {
@@ -392,6 +398,10 @@ handle * dialparse(char *address) {
 	size_t protocolsize = strlen(protocol) + 1;
 
 	if (protocolsize >= 4) {
+		string dialparse_type;
+		dialparse_type.text = "com.googlecode.evoke.dialparse.v1.0";
+		dialparse_type.length = strlen(dialparse_type.text) + 1;
+		/* These types are either ips, or names that resolve to ips. */
 		if (strncmp("net", protocol,4) == 0 || strncmp("tcp", protocol, 4) == 0 || strncmp("udp",protocol,4) == 0 || strncmp("sctp",protocol,5) == 0) {
 			char *host;
 			host = strsep(&tempaddress, "!");
@@ -412,9 +422,6 @@ handle * dialparse(char *address) {
 			}
 			size_t hostsize = strlen(host) + 1;
 			size_t totalsize = structsize + protocolsize + hostsize + portsize;
-			string dialparse_type;
-			dialparse_type.text = "com.googlecode.evoke.dialparse.v1.0";
-			dialparse_type.length = strlen(dialparse_type.text) + 1;
 
 			pointer = new_handle(totalsize, dialparse_type);
 			struct dialparse_v1 * temp;

@@ -9,8 +9,7 @@
 	This eases understanding.
 
 	format:
-
-		[transport[+mode]!]protocol:[//hostname][:port]
+		[transport[+mode]!]protocol:[//hostname[:port]/]
 		[transport[+mode]!]protocol:[/path/to/file]
 		[transport[+mode]!]protocol:[domain]
 		[transport[+mode]!]protocol:

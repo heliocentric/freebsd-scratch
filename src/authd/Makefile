@@ -6,10 +6,10 @@ NO_MAN=
 
 PRECIOUSPROG=
 INSTALLFLAGS=-b -B.bak
-DPADD=	${LIBUTIL}
+DPADD=	${LIBUTIL} ${LIBV}
 LDADD=	-lutil -lcrypt
 DPADD+=  ${LIBMD}                                                                                                            
-LDADD+=  -lmd
+LDADD+=  -lmd -lV
 
 NO_SHARED?=	YES
 

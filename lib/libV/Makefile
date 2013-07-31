@@ -1,5 +1,4 @@
-#!/bin/sh
-# Copyright 2012-2013 Dylan Cochran
+# Copyright 2007-2010 Dylan Cochran
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -25,8 +24,10 @@
 
 # $Id$
 
-MAINDIR="$(pwd)"
-cd ${MAINDIR}/lib/libV
-make clean
-cd ${MAINDIR}/src/authd
-make clean
+LIB=    V
+SHLIB_MAJOR= 1
+SRCS+=  dial.c
+INCS=   V.h
+
+.include <bsd.lib.mk>
+

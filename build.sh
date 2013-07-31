@@ -26,7 +26,7 @@
 # $Id$
 
 MAINDIR="$(pwd)"
-cd ${MAINDIR}/lib/libevoke
+cd ${MAINDIR}/lib/libV
 make clean
 make
 sudo make install

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2012-2013 Dylan Cochran
+# Copyright 2007-2010 Dylan Cochran
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -24,9 +24,3 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 # $Id$
-
-MAINDIR="$(pwd)"
-cd ${MAINDIR}/lib/libevoke
-make clean
-cd ${MAINDIR}/src/nexusd
-make clean

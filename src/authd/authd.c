@@ -1,4 +1,4 @@
-#!/bin/sh
+/*
 # Copyright 2012-2013 Dylan Cochran
 # All rights reserved
 #
@@ -25,12 +25,11 @@
 
 # $Id$
 
-MAINDIR="$(pwd)"
-cd ${MAINDIR}/lib/libevoke
-make clean
-make
-sudo make install
-cd ${MAINDIR}/src/authd
-make clean
-make
-sudo make install
+*/
+
+#include <sys/types.h>
+#include <evoke.h>
+
+int main(int argc, char *argv[]) {
+	return 0;
+}

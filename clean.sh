@@ -28,5 +28,5 @@
 MAINDIR="$(pwd)"
 cd ${MAINDIR}/lib/libevoke
 make clean
-cd ${MAINDIR}/src/nexusd
+cd ${MAINDIR}/src/authd
 make clean

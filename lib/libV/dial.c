@@ -18,3 +18,7 @@
 handle * dial(char * address, char * local) {
 
 }
+
+handle * dialparse(char * address) {
+
+}

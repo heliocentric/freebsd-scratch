@@ -1,0 +1,13 @@
+--- xserver/xggi/configure.ac	2006-02-13 18:21:22.000000000 +0000
++++ xserver/xggi/configure.ac	2009-12-03 06:49:28.000000000 +0000
+@@ -1395,7 +1395,9 @@
+ DIX_CFLAGS="-DHAVE_DIX_CONFIG_H"
+ AC_SUBST([DIX_CFLAGS])
+ 
+-AC_SUBST([libdir exec_prefix prefix])
++AC_SUBST([libdir])
++AC_SUBST([exec_prefix])
++AC_SUBST([prefix])
+ 
+ # Man page sections - used in config utils & generating man pages
+ XORG_MANPAGE_SECTIONS

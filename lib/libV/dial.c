@@ -15,10 +15,10 @@
 		[transport[+mode]!]protocol:
 
 */
-handle * dial(char * address, char * local) {
+V_handle * dial(char * address, char * local) {
 
 }
 
-handle * dialparse(char * address) {
+V_handle * dialparse(char * address) {
 
 }
